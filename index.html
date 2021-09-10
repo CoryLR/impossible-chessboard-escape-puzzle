@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CLR | Impossible Chessboard Escape Puzzle</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Impossible Chessboard Escape Puzzle - CLR</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14321,7 +14321,7 @@ Pandas 1.3.2
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<br><p><strong><em>SPOILER ALERT: If you want to solve this puzzle yourself, turn back now!</em></strong></p>
+<p><strong><em>SPOILER ALERT: If you want to solve this puzzle yourself, turn back now!</em></strong></p>
 <h2 id="Set-Up-the-Board">Set Up the Board<a class="anchor-link" href="#Set-Up-the-Board">&#182;</a></h2><p>We need to make a representation of a chessboard with a randomly flipped coin in each square</p>
 
 </div>
@@ -14502,14 +14502,8 @@ Pandas 1.3.2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Start with 0 and count left to right, then top to bottom</span>
-<span class="n">squares</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">squares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-
-<span class="n">chessboardSquareIDs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">getChessboardSquareIDs</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getChessboardSquareIDs</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Start with 0 and count left to right, top to bottom&quot;&quot;&quot;</span>
     <span class="n">squares</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
         <span class="n">squares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
@@ -15651,8 +15645,7 @@ Prisoner 2 finds the key in square number 19 and both prisoners go free!
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RECAP:&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RECAP:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- The warden hides the key in sqaure number &quot;</span><span class="si">{</span><span class="n">squareWhereWardenPutKey</span><span class="si">}</span><span class="s1">&quot; while Prisoner 1 watches&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 1 reads the starting chessboard binary and sees &quot;</span><span class="si">{</span><span class="n">initialBinaryValue</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 1 flips the coin in square number &quot;</span><span class="si">{</span><span class="n">coinToFlipSquareID</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
@@ -15678,8 +15671,7 @@ Prisoner 2 finds the key in square number 19 and both prisoners go free!
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-RECAP:
+<pre>RECAP:
 - The warden hides the key in sqaure number &#34;19&#34; while Prisoner 1 watches
 - Prisoner 1 reads the starting chessboard binary and sees &#34;011111&#34;
 - Prisoner 1 flips the coin in square number &#34;12&#34;

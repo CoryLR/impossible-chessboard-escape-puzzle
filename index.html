@@ -15231,7 +15231,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
     <span class="c1"># at least one digit of the binary</span>
     <span class="n">squaresWithCorrectImpact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">squareOptions</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
     
-    <span class="c1"># Only 1 square will appear in `squaresWithCorrectImpact`</span>
+    <span class="c1"># Only one square will appear in `squaresWithCorrectImpact`</span>
     <span class="c1"># six times, that&#39;s the square we need to flip to change all six</span>
     <span class="c1"># digits to our target binary</span>
     <span class="n">coinToFlipSquareID</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">squaresWithCorrectImpact</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>

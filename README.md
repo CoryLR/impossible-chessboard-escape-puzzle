@@ -9,8 +9,8 @@ Prisoner 1 walks in to a room, sees a chessboard where each square has a coin on
 
 ## See Solution Implementation
 
+* Website: [Impossible Chessboard Escape Puzzle](https://corylr.github.io/impossible-chessboard-escape-puzzle/)
 * PDF: [Impossible Chessboard Escape Puzzle - CLR.pdf](Impossible%20Chessboard%20Escape%20Puzzle%20-%20CLR.pdf)
-* HTML: [Impossible Chessboard Escape Puzzle](index.html)
 * Jupyter Notebook: [Impossible Chessboard Escape Puzzle - CLR.ipynb](Impossible%20Chessboard%20Escape%20Puzzle%20-%20CLR.ipynb)
 
 ## Related Links

@@ -1,0 +1,57 @@
+/* 
+  Style Overrides for Jupyter Notebook's HTML Export
+  To apply overrides add `<link rel="stylesheet" href="jupyter-notebook-overrides.css">` to the HTML's `<head>`
+*/
+
+/* Make code blocks and their output scroll horizontally */
+.CodeMirror {
+  overflow-x: auto !important;
+}
+
+.CodeMirror pre {
+  word-wrap: normal !important;
+  white-space: pre !important;
+  padding-bottom: 15px !important;
+  margin-bottom: 0 !important;
+  padding-top: 5.2px !important;
+}
+
+/* Give mobile more horizontal space */
+@media only screen and (max-width: 600px) {
+  :root {
+    --jp-notebook-padding: 10px 0 !important;
+  }
+
+  body {
+    margin: 8px 8px 8px 0 !important;
+  }
+
+  .jp-Cell {
+    padding-left: 0 !important;
+  }
+}
+
+/* Misc. touch-ups */
+.jp-RenderedText pre {
+  /* Make output from `print` statements wrap normally */
+  word-break: normal !important;
+  word-wrap: normal !important;
+}
+.jp-InputPrompt {
+  /* Wrappers for "In [#]" */
+  padding-top: 17px !important;
+}
+
+.jp-OutputPrompt {
+  /* Wrappers for "Out[#]" */
+  padding-top: 3px !important;
+}
+
+.jp-RenderedMarkdown {
+  overflow-x: hidden !important;
+}
+
+.c1 {
+  /* Take away italics from comments */
+  font-style: normal !important;
+}

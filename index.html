@@ -5,7 +5,7 @@
 
 <title>CLR | Impossible Chessboard Escape Puzzle</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
-
+<link rel="stylesheet" href="jupyter-notebook-overrides.css">
 
 
 <style type="text/css">
@@ -15584,16 +15584,14 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">squarePickedByPrisoner2</span> <span class="o">==</span> <span class="n">squareWhereWardenPutKey</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">   _____   _    _    _____    _____   ______    _____    _____   _ </span>
-<span class="s2">  / ____| | |  | |  / ____|  / ____| |  ____|  / ____|  / ____| | |</span>
-<span class="s2"> | (___   | |  | | | |      | |      | |__    | (___   | (___   | |</span>
-<span class="s2">  \___ \  | |  | | | |      | |      |  __|    \___ \   \___ \  | |</span>
-<span class="s2">  ____) | | |__| | | |____  | |____  | |____   ____) |  ____) | |_|</span>
-<span class="s2"> |_____/   \____/   \_____|  \_____| |______| |_____/  |_____/  (_)</span>
-<span class="s2">                                                                   </span>
-<span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prisoner 2 finds the key in square number </span><span class="si">{</span><span class="n">squarePickedByPrisoner2</span><span class="si">}</span><span class="s2"> and both prisoners go free!&quot;</span><span class="p">)</span>
+    <span class="c1">#   _____   _    _    _____    _____   ______    _____    _____   _ </span>
+    <span class="c1">#  / ____| | |  | |  / ____|  / ____| |  ____|  / ____|  / ____| | |</span>
+    <span class="c1"># | (___   | |  | | | |      | |      | |__    | (___   | (___   | |</span>
+    <span class="c1">#  \___ \  | |  | | | |      | |      |  __|    \___ \   \___ \  | |</span>
+    <span class="c1">#  ____) | | |__| | | |____  | |____  | |____   ____) |  ____) | |_|</span>
+    <span class="c1"># |_____/   \____/   \_____|  \_____| |______| |_____/  |_____/  (_)</span>
+    <span class="c1">#                                                                   </span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success! Prisoner 2 finds the key in square number </span><span class="si">{</span><span class="n">squarePickedByPrisoner2</span><span class="si">}</span><span class="s2"> and both prisoners go free!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whoops, wrong square... The warden locks both prisoners back up.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15615,16 +15613,8 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-   _____   _    _    _____    _____   ______    _____    _____   _ 
-  / ____| | |  | |  / ____|  / ____| |  ____|  / ____|  / ____| | |
- | (___   | |  | | | |      | |      | |__    | (___   | (___   | |
-  \___ \  | |  | | | |      | |      |  __|    \___ \   \___ \  | |
-  ____) | | |__| | | |____  | |____  | |____   ____) |  ____) | |_|
- |_____/   \____/   \_____|  \_____| |______| |_____/  |_____/  (_)
-                                                                   
-    
-Prisoner 2 finds the key in square number 19 and both prisoners go free!
+<pre>    
+Success! Prisoner 2 finds the key in square number 19 and both prisoners go free!
 </pre>
 </div>
 </div>
@@ -15713,9 +15703,9 @@ Prisoner 2 finds the key in square number 19 and both prisoners go free!
     <span class="n">coinToFlipSquareID</span> <span class="o">=</span> <span class="n">findWhichCoinToFlip</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">squareWhereWardenPutKey</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
     <span class="n">chessboardPostCoinFlip</span> <span class="o">=</span> <span class="n">flipCoinForNewChessboardState</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">coinToFlipSquareID</span><span class="p">)</span>
     <span class="n">newBinaryStringValue</span> <span class="o">=</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">chessboardPostCoinFlip</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
-    <span class="n">calculatedsquareWhereWardenPutKey</span> <span class="o">=</span> <span class="n">binaryToInt</span><span class="p">(</span><span class="n">newBinaryStringValue</span><span class="p">)</span>
+    <span class="n">squarePickedByPrisoner2</span> <span class="o">=</span> <span class="n">binaryToInt</span><span class="p">(</span><span class="n">newBinaryStringValue</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">calculatedsquareWhereWardenPutKey</span> <span class="o">==</span> <span class="n">squareWhereWardenPutKey</span>
+    <span class="k">return</span> <span class="n">squarePickedByPrisoner2</span> <span class="o">==</span> <span class="n">squareWhereWardenPutKey</span>
 
 <span class="k">def</span> <span class="nf">batchTestPuzzleSolution</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
     <span class="n">success</span> <span class="o">=</span> <span class="mi">0</span>

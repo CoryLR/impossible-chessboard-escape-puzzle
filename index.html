@@ -14284,6 +14284,7 @@ a.anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numpy&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
@@ -14331,16 +14332,16 @@ Pandas 1.3.2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getChessboardOfCoins</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_chessboard_of_coins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    # Make the chessboard with randomized coins represented by 0 and 1</span>
-<span class="sd">    # 1 = heads</span>
-<span class="sd">    # 0 = tails</span>
+<span class="sd">    Make the chessboard with randomized coins represented by 0 and 1</span>
+<span class="sd">    * 1 = heads</span>
+<span class="sd">    * 0 = tails</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">binary_8x8_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">binary_8x8_grid</span><span class="p">)</span>
 
-<span class="n">chessboard</span> <span class="o">=</span> <span class="n">getChessboardOfCoins</span><span class="p">()</span>
+<span class="n">chessboard</span> <span class="o">=</span> <span class="n">get_chessboard_of_coins</span><span class="p">()</span>
 <span class="n">chessboard</span>
 </pre></div>
 
@@ -14394,57 +14395,57 @@ Pandas 1.3.2
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>0</td>
-      <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>5</th>
@@ -14453,31 +14454,31 @@ Pandas 1.3.2
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>6</th>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -14502,17 +14503,17 @@ Pandas 1.3.2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getChessboardSquareIDs</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_chessboard_square_ids</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Start with 0 and count left to right, top to bottom&quot;&quot;&quot;</span>
     <span class="n">squares</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
         <span class="n">squares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-<span class="n">chessboardSquareIDs</span> <span class="o">=</span> <span class="n">getChessboardSquareIDs</span><span class="p">()</span>
+<span class="n">chessboard_square_ids</span> <span class="o">=</span> <span class="n">get_chessboard_square_ids</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Each square on the chess board is given a unique ID 0 through 63:&#39;</span><span class="p">)</span>
-<span class="n">chessboardSquareIDs</span>
+<span class="n">chessboard_square_ids</span>
 </pre></div>
 
      </div>
@@ -14691,18 +14692,18 @@ Pandas 1.3.2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binaryToInt</span><span class="p">(</span><span class="n">binaryString</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">binaryString</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">binary_to_int</span><span class="p">(</span><span class="n">binary</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">intTo6BitBinary</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">int_to_6bit_binary</span><span class="p">(</span><span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">64</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input to function intTo6BitBinary must be less than 64&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Input to function int_to_6bit_binary must be less than 64&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">format</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 
-<span class="n">chessboardBinaryUniqueSquareIDs</span> <span class="o">=</span> <span class="n">chessboardSquareIDs</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">intTo6BitBinary</span><span class="p">)</span>
+<span class="n">chessboard_square_ids_binary</span> <span class="o">=</span> <span class="n">chessboard_square_ids</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">int_to_6bit_binary</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Each square&#39;s unique ID represented in binary:&quot;</span><span class="p">)</span>
-<span class="n">chessboardBinaryUniqueSquareIDs</span>
+<span class="n">chessboard_square_ids_binary</span>
 </pre></div>
 
      </div>
@@ -14896,37 +14897,38 @@ Pandas 1.3.2
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_getSectionSwitcher</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_getSection0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getSection1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getSection2</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_getSection3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getSection4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getSection5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_switcher</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_2</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_5</span>
         <span class="p">]</span>
     
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sectionNumber</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">section_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+                <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a subsection of the provided chessboard based on the section number</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters:</span>
-<span class="sd">        * sectionNumber - the section</span>
-<span class="sd">        * dataFrame - the chessboard</span>
-<span class="sd">        * inSection (default:True) - set False to get outside the section number</span>
+<span class="sd">        * section_number - the section</span>
+<span class="sd">        * data_frame - the chessboard</span>
+<span class="sd">        * in_section (default:True) - set False to get outside the section number</span>
 <span class="sd">        </span>
 <span class="sd">        Example:</span>
 <span class="sd">        `section1 = sections.get(1, chessboard)`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getSectionSwitcher</span><span class="p">[</span><span class="n">sectionNumber</span><span class="p">](</span><span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_section_switcher</span><span class="p">[</span><span class="n">section_number</span><span class="p">](</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">_getSection0</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">inSection</span> <span class="k">else</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-    <span class="k">def</span> <span class="nf">_getSection1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">inSection</span> <span class="k">else</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
-    <span class="k">def</span> <span class="nf">_getSection2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">inSection</span> <span class="k">else</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
-    <span class="k">def</span> <span class="nf">_getSection3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">inSection</span> <span class="k">else</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
-    <span class="k">def</span> <span class="nf">_getSection4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">inSection</span> <span class="k">else</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
-    <span class="k">def</span> <span class="nf">_getSection5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataFrame</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">inSection</span> <span class="k">else</span> <span class="n">dataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+    <span class="k">def</span> <span class="nf">_get_section_0</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">in_section</span> <span class="k">else</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+    <span class="k">def</span> <span class="nf">_get_section_1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">in_section</span> <span class="k">else</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+    <span class="k">def</span> <span class="nf">_get_section_2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">in_section</span> <span class="k">else</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+    <span class="k">def</span> <span class="nf">_get_section_3</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">in_section</span> <span class="k">else</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+    <span class="k">def</span> <span class="nf">_get_section_4</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">in_section</span> <span class="k">else</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+    <span class="k">def</span> <span class="nf">_get_section_5</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span> <span class="k">if</span> <span class="n">in_section</span> <span class="k">else</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
 
 
 <span class="n">sections</span> <span class="o">=</span> <span class="n">SectionDefinition</span><span class="p">()</span>
@@ -14992,59 +14994,59 @@ Pandas 1.3.2
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
-      <td>0</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0</td>
       <td>1</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>5</th>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -15071,24 +15073,24 @@ Pandas 1.3.2
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Functions to read a 6-bit binary string from the board using 6 sections</span>
 
-<span class="k">def</span> <span class="nf">oneIfEvenZeroIfOdd</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">one_if_even_zero_if_odd</span><span class="p">(</span><span class="n">num</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  
         <span class="k">return</span> <span class="mi">1</span> 
     <span class="k">else</span><span class="p">:</span>  
         <span class="k">return</span> <span class="mi">0</span>
 
-<span class="k">def</span> <span class="nf">countHeadsUpInSection</span><span class="p">(</span><span class="n">section</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">count_heads_up_coins_in_section</span><span class="p">(</span><span class="n">section</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">section</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">sections</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">read_binary_from_chessboard</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">sections</span><span class="p">:</span> <span class="n">SectionDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="n">digits</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-        <span class="n">sectionOfBoard</span> <span class="o">=</span> <span class="n">sections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">board</span><span class="p">)</span>
-        <span class="n">numberOfHeadsUpInSection</span> <span class="o">=</span> <span class="n">countHeadsUpInSection</span><span class="p">(</span><span class="n">sectionOfBoard</span><span class="p">)</span>
-        <span class="n">oneOrZero</span> <span class="o">=</span> <span class="n">oneIfEvenZeroIfOdd</span><span class="p">(</span><span class="n">numberOfHeadsUpInSection</span><span class="p">)</span>
-        <span class="n">digits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">oneOrZero</span><span class="p">)</span>
-    <span class="n">binaryStringBasedOnSections</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="nb">int</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">binaryStringBasedOnSections</span>
+        <span class="n">section_of_chessboard</span> <span class="o">=</span> <span class="n">sections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">board</span><span class="p">)</span>
+        <span class="n">number_of_heads_up_in_section</span> <span class="o">=</span> <span class="n">count_heads_up_coins_in_section</span><span class="p">(</span><span class="n">section_of_chessboard</span><span class="p">)</span>
+        <span class="n">one_or_zero</span> <span class="o">=</span> <span class="n">one_if_even_zero_if_odd</span><span class="p">(</span><span class="n">number_of_heads_up_in_section</span><span class="p">)</span>
+        <span class="n">digits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">one_or_zero</span><span class="p">)</span>
+    <span class="n">binary_string_based_on_sections</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="nb">int</span> <span class="ow">in</span> <span class="n">digits</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">binary_string_based_on_sections</span>
 </pre></div>
 
      </div>
@@ -15109,14 +15111,14 @@ Pandas 1.3.2
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The warden places the key under one of the squares on the chess board</span>
 
-<span class="k">def</span> <span class="nf">getWardenKeyPlacement</span><span class="p">():</span>
-    <span class="n">keyLocationRow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-    <span class="n">keyLocationCol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">keyLocationRow</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">keyLocationCol</span>
+<span class="k">def</span> <span class="nf">get_warden_key_placement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">key_location_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">key_location_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">key_location_row</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">key_location_col</span>
 
-<span class="n">squareWhereWardenPutKey</span> <span class="o">=</span> <span class="n">getWardenKeyPlacement</span><span class="p">()</span>
+<span class="n">square_where_warden_put_key</span> <span class="o">=</span> <span class="n">get_warden_key_placement</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The prison warden has placed the key under square # </span><span class="si">{</span><span class="n">squareWhereWardenPutKey</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The prison warden has placed the key under square # </span><span class="si">{</span><span class="n">square_where_warden_put_key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15161,10 +15163,10 @@ Pandas 1.3.2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">initialBinaryValue</span> <span class="o">=</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
-<span class="n">targetBinaryValue</span> <span class="o">=</span> <span class="n">intTo6BitBinary</span><span class="p">(</span><span class="n">squareWhereWardenPutKey</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Initial chessboard binary: </span><span class="si">{</span><span class="n">initialBinaryValue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Target chessboard binary:  </span><span class="si">{</span><span class="n">targetBinaryValue</span><span class="si">}</span><span class="s1"> (this represents &quot;</span><span class="si">{</span><span class="n">squareWhereWardenPutKey</span><span class="si">}</span><span class="s1">&quot;, the location of the key)&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">initial_binary_value</span> <span class="o">=</span> <span class="n">read_binary_from_chessboard</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+<span class="n">target_binary_value</span> <span class="o">=</span> <span class="n">int_to_6bit_binary</span><span class="p">(</span><span class="n">square_where_warden_put_key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Initial chessboard binary: </span><span class="si">{</span><span class="n">initial_binary_value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Target chessboard binary:  </span><span class="si">{</span><span class="n">target_binary_value</span><span class="si">}</span><span class="s1"> (this represents &quot;</span><span class="si">{</span><span class="n">square_where_warden_put_key</span><span class="si">}</span><span class="s1">&quot;, the location of the key)&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15184,7 +15186,7 @@ Pandas 1.3.2
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Initial chessboard binary: 011111
+<pre>Initial chessboard binary: 010010
 Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of the key)
 </pre>
 </div>
@@ -15206,42 +15208,43 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getListOfSquaresInSection</span><span class="p">(</span><span class="n">sectionNumber</span><span class="p">,</span> <span class="n">inSection</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">sections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sectionNumber</span><span class="p">,</span> <span class="n">chessboardSquareIDs</span><span class="p">,</span> <span class="n">inSection</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_squares_in_section</span><span class="p">(</span><span class="n">section_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">in_section</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">sections</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section_number</span><span class="p">,</span> <span class="n">chessboard_square_ids</span><span class="p">,</span> <span class="n">in_section</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">findWhichCoinToFlip</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">keyLocationID</span><span class="p">,</span> <span class="n">sections</span><span class="p">):</span>
-    <span class="n">initialBinary</span> <span class="o">=</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
-    <span class="n">targetBinary</span> <span class="o">=</span> <span class="n">intTo6BitBinary</span><span class="p">(</span><span class="n">keyLocationID</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">find_which_coin_to_flip</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">key_location_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                            <span class="n">sections</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">initial_binary</span> <span class="o">=</span> <span class="n">read_binary_from_chessboard</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+    <span class="n">target_binary</span> <span class="o">=</span> <span class="n">int_to_6bit_binary</span><span class="p">(</span><span class="n">key_location_id</span><span class="p">)</span>
 
-    <span class="n">squareOptions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">square_options</span> <span class="o">=</span> <span class="p">[]</span>
     
     <span class="c1"># For each digit in the 6-bit binary string,</span>
     <span class="c1"># decide if we need to flip that digit or not</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">initialBinary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">targetBinary</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">initial_binary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">target_binary</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
             <span class="c1"># If the digits are not the same, then we need to flip</span>
             <span class="c1"># a coin in this section, so get all squares in the section</span>
-            <span class="n">squareOptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getListOfSquaresInSection</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+            <span class="n">square_options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_squares_in_section</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># If the digits are the same then we need to keep this</span>
             <span class="c1"># digit the same, so get all squares *not* in the section</span>
-            <span class="n">squareOptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getListOfSquaresInSection</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+            <span class="n">square_options</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_squares_in_section</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
     
     <span class="c1"># These are all the squares which have a correct impact on</span>
     <span class="c1"># at least one digit of the binary</span>
-    <span class="n">squaresWithCorrectImpact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">squareOptions</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">squares_with_correct_impact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">square_options</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
     
-    <span class="c1"># Only one square will appear in `squaresWithCorrectImpact`</span>
+    <span class="c1"># Only one square will appear in `squares_with_correct_impact`</span>
     <span class="c1"># six times, that&#39;s the square we need to flip to change all six</span>
     <span class="c1"># digits to our target binary</span>
-    <span class="n">coinToFlipSquareID</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">squaresWithCorrectImpact</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+    <span class="n">coin_to_flip_square_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">squares_with_correct_impact</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
     
-    <span class="k">return</span> <span class="n">coinToFlipSquareID</span>
+    <span class="k">return</span> <span class="n">coin_to_flip_square_id</span>
 
 
-<span class="n">coinToFlipSquareID</span> <span class="o">=</span> <span class="n">findWhichCoinToFlip</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">squareWhereWardenPutKey</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+<span class="n">coin_to_flip_square_id</span> <span class="o">=</span> <span class="n">find_which_coin_to_flip</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">square_where_warden_put_key</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Square ID of the coin to flip: </span><span class="si">{</span><span class="n">coinToFlipSquareID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Square ID of the coin to flip: </span><span class="si">{</span><span class="n">coin_to_flip_square_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15261,7 +15264,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Square ID of the coin to flip: 12
+<pre>Square ID of the coin to flip: 32
 </pre>
 </div>
 </div>
@@ -15283,27 +15286,27 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">flipCoinForNewChessboardState</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">squareID</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">flip_coin_for_new_chessboard_state</span><span class="p">(</span><span class="n">board</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">square_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 
-    <span class="c1"># Figure out where the target squareID is on the board</span>
-    <span class="n">rowLoc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">squareID</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
-    <span class="n">colLoc</span> <span class="o">=</span> <span class="n">squareID</span> <span class="o">%</span> <span class="mi">8</span>
-    <span class="n">coin</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">rowLoc</span><span class="p">,</span> <span class="n">colLoc</span><span class="p">]</span>
+    <span class="c1"># Figure out where the target square_id is on the board</span>
+    <span class="n">row_location</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">square_id</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">column_location</span> <span class="o">=</span> <span class="n">square_id</span> <span class="o">%</span> <span class="mi">8</span>
+    <span class="n">coin</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_location</span><span class="p">,</span> <span class="n">column_location</span><span class="p">]</span>
         
     <span class="c1"># Flip the coin and return a new chessboard state</span>
-    <span class="n">newBoard</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">new_board</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">coin</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
         <span class="c1"># Coin is heads</span>
-        <span class="n">newBoard</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">rowLoc</span><span class="p">,</span> <span class="n">colLoc</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">new_board</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_location</span><span class="p">,</span> <span class="n">column_location</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Coin is tails</span>
-        <span class="n">newBoard</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">rowLoc</span><span class="p">,</span> <span class="n">colLoc</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">new_board</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_location</span><span class="p">,</span> <span class="n">column_location</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
         
-    <span class="k">return</span> <span class="n">newBoard</span>
+    <span class="k">return</span> <span class="n">new_board</span>
 
-<span class="n">chessboardPostCoinFlip</span> <span class="o">=</span> <span class="n">flipCoinForNewChessboardState</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">coinToFlipSquareID</span><span class="p">)</span>
+<span class="n">chessboard_after_coin_flip</span> <span class="o">=</span> <span class="n">flip_coin_for_new_chessboard_state</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">coin_to_flip_square_id</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prisoner 1 flips the coin in square </span><span class="si">{</span><span class="n">coinToFlipSquareID</span><span class="si">}</span><span class="s2">, then leaves.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prisoner 1 flips the coin in square </span><span class="si">{</span><span class="n">coin_to_flip_square_id</span><span class="si">}</span><span class="s2">, then leaves.&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15323,7 +15326,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Prisoner 1 flips the coin in square 12, then leaves.
+<pre>Prisoner 1 flips the coin in square 32, then leaves.
 </pre>
 </div>
 </div>
@@ -15344,7 +15347,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chessboardPostCoinFlip</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chessboard_after_coin_flip</span>
 </pre></div>
 
      </div>
@@ -15397,46 +15400,46 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>0</td>
-      <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -15445,9 +15448,9 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>5</th>
@@ -15456,31 +15459,31 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>6</th>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>7</th>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -15505,8 +15508,8 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newBinaryValue</span> <span class="o">=</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">chessboardPostCoinFlip</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;New chessboard binary: &quot;</span><span class="si">{</span><span class="n">newBinaryValue</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_binary_value</span> <span class="o">=</span> <span class="n">read_binary_from_chessboard</span><span class="p">(</span><span class="n">chessboard_after_coin_flip</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;New chessboard binary: &quot;</span><span class="si">{</span><span class="n">new_binary_value</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15547,8 +15550,8 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">squarePickedByPrisoner2</span> <span class="o">=</span> <span class="n">binaryToInt</span><span class="p">(</span><span class="n">newBinaryValue</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Prisoner 2 selects square number </span><span class="si">{</span><span class="n">squarePickedByPrisoner2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">square_picked_by_prisoner_2</span> <span class="o">=</span> <span class="n">binary_to_int</span><span class="p">(</span><span class="n">new_binary_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Prisoner 2 selects square number </span><span class="si">{</span><span class="n">square_picked_by_prisoner_2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15583,7 +15586,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">squarePickedByPrisoner2</span> <span class="o">==</span> <span class="n">squareWhereWardenPutKey</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">square_picked_by_prisoner_2</span> <span class="o">==</span> <span class="n">square_where_warden_put_key</span><span class="p">:</span>
     <span class="c1">#   _____   _    _    _____    _____   ______    _____    _____   _ </span>
     <span class="c1">#  / ____| | |  | |  / ____|  / ____| |  ____|  / ____|  / ____| | |</span>
     <span class="c1"># | (___   | |  | | | |      | |      | |__    | (___   | (___   | |</span>
@@ -15591,7 +15594,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
     <span class="c1">#  ____) | | |__| | | |____  | |____  | |____   ____) |  ____) | |_|</span>
     <span class="c1"># |_____/   \____/   \_____|  \_____| |______| |_____/  |_____/  (_)</span>
     <span class="c1">#                                                                   </span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success! Prisoner 2 finds the key in square number </span><span class="si">{</span><span class="n">squarePickedByPrisoner2</span><span class="si">}</span><span class="s2"> and both prisoners go free!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success! Prisoner 2 finds the key in square number </span><span class="si">{</span><span class="n">square_picked_by_prisoner_2</span><span class="si">}</span><span class="s2"> and both prisoners go free!&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whoops, wrong square... The warden locks both prisoners back up.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15613,8 +15616,7 @@ Target chessboard binary:  010011 (this represents &#34;19&#34;, the location of
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>    
-Success! Prisoner 2 finds the key in square number 19 and both prisoners go free!
+<pre>Success! Prisoner 2 finds the key in square number 19 and both prisoners go free!
 </pre>
 </div>
 </div>
@@ -15636,12 +15638,12 @@ Success! Prisoner 2 finds the key in square number 19 and both prisoners go free
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RECAP:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- The warden hides the key in sqaure number &quot;</span><span class="si">{</span><span class="n">squareWhereWardenPutKey</span><span class="si">}</span><span class="s1">&quot; while Prisoner 1 watches&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 1 reads the starting chessboard binary and sees &quot;</span><span class="si">{</span><span class="n">initialBinaryValue</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 1 flips the coin in square number &quot;</span><span class="si">{</span><span class="n">coinToFlipSquareID</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- This coin flip caused the chessboard binary to change from &quot;</span><span class="si">{</span><span class="n">initialBinaryValue</span><span class="si">}</span><span class="s1">&quot; to &quot;</span><span class="si">{</span><span class="n">newBinaryValue</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 2 enters and converts the chessboard binary &quot;</span><span class="si">{</span><span class="n">newBinaryValue</span><span class="si">}</span><span class="s1">&quot; to &quot;</span><span class="si">{</span><span class="n">squarePickedByPrisoner2</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 2 selects square &quot;</span><span class="si">{</span><span class="n">squarePickedByPrisoner2</span><span class="si">}</span><span class="s1">&quot; and finds the key!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- The warden hides the key in sqaure number &quot;</span><span class="si">{</span><span class="n">square_where_warden_put_key</span><span class="si">}</span><span class="s1">&quot; while Prisoner 1 watches&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 1 reads the starting chessboard binary and sees &quot;</span><span class="si">{</span><span class="n">initial_binary_value</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 1 flips the coin in square number &quot;</span><span class="si">{</span><span class="n">coin_to_flip_square_id</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- This coin flip caused the chessboard binary to change from &quot;</span><span class="si">{</span><span class="n">initial_binary_value</span><span class="si">}</span><span class="s1">&quot; to &quot;</span><span class="si">{</span><span class="n">new_binary_value</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 2 enters and converts the chessboard binary &quot;</span><span class="si">{</span><span class="n">new_binary_value</span><span class="si">}</span><span class="s1">&quot; to &quot;</span><span class="si">{</span><span class="n">square_picked_by_prisoner_2</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Prisoner 2 selects square &quot;</span><span class="si">{</span><span class="n">square_picked_by_prisoner_2</span><span class="si">}</span><span class="s1">&quot; and finds the key!&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15663,9 +15665,9 @@ Success! Prisoner 2 finds the key in square number 19 and both prisoners go free
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>RECAP:
 - The warden hides the key in sqaure number &#34;19&#34; while Prisoner 1 watches
-- Prisoner 1 reads the starting chessboard binary and sees &#34;011111&#34;
-- Prisoner 1 flips the coin in square number &#34;12&#34;
-- This coin flip caused the chessboard binary to change from &#34;011111&#34; to &#34;010011&#34;
+- Prisoner 1 reads the starting chessboard binary and sees &#34;010010&#34;
+- Prisoner 1 flips the coin in square number &#34;32&#34;
+- This coin flip caused the chessboard binary to change from &#34;010010&#34; to &#34;010011&#34;
 - Prisoner 2 enters and converts the chessboard binary &#34;010011&#34; to &#34;19&#34;
 - Prisoner 2 selects square &#34;19&#34; and finds the key!
 </pre>
@@ -15687,43 +15689,43 @@ Success! Prisoner 2 finds the key in square number 19 and both prisoners go free
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">testPuzzleSolution</span><span class="p">(</span>
-        <span class="n">getChessboardOfCoins</span><span class="p">,</span> <span class="n">getChessboardSquareIDs</span><span class="p">,</span>
-        <span class="n">binaryToInt</span><span class="p">,</span> <span class="n">intTo6BitBinary</span><span class="p">,</span>
-        <span class="n">sections</span><span class="p">,</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">,</span> <span class="n">getWardenKeyPlacement</span><span class="p">,</span>
-        <span class="n">findWhichCoinToFlip</span><span class="p">,</span> <span class="n">flipCoinForNewChessboardState</span>
-    <span class="p">):</span>
-    <span class="n">chessboard</span> <span class="o">=</span> <span class="n">getChessboardOfCoins</span><span class="p">()</span>
-    <span class="n">chessboardSquareIDs</span> <span class="o">=</span> <span class="n">getChessboardSquareIDs</span><span class="p">()</span>
-    <span class="n">initialBinaryStringValue</span> <span class="o">=</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_puzzle_solution</span><span class="p">(</span>
+        <span class="n">get_chessboard_of_coins</span><span class="p">,</span> <span class="n">get_chessboard_square_ids</span><span class="p">,</span>
+        <span class="n">binary_to_int</span><span class="p">,</span> <span class="n">int_to_6bit_binary</span><span class="p">,</span>
+        <span class="n">sections</span><span class="p">,</span> <span class="n">read_binary_from_chessboard</span><span class="p">,</span> <span class="n">get_warden_key_placement</span><span class="p">,</span>
+        <span class="n">find_which_coin_to_flip</span><span class="p">,</span> <span class="n">flip_coin_for_new_chessboard_state</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">chessboard</span> <span class="o">=</span> <span class="n">get_chessboard_of_coins</span><span class="p">()</span>
+    <span class="n">chessboard_square_ids</span> <span class="o">=</span> <span class="n">get_chessboard_square_ids</span><span class="p">()</span>
+    <span class="n">initial_binaryStringValue</span> <span class="o">=</span> <span class="n">read_binary_from_chessboard</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
     
-    <span class="n">squareWhereWardenPutKey</span> <span class="o">=</span> <span class="n">getWardenKeyPlacement</span><span class="p">()</span>
-    <span class="n">targetBinaryStringValue</span> <span class="o">=</span> <span class="n">intTo6BitBinary</span><span class="p">(</span><span class="n">squareWhereWardenPutKey</span><span class="p">)</span>
+    <span class="n">square_where_warden_put_key</span> <span class="o">=</span> <span class="n">get_warden_key_placement</span><span class="p">()</span>
+    <span class="n">target_binaryStringValue</span> <span class="o">=</span> <span class="n">int_to_6bit_binary</span><span class="p">(</span><span class="n">square_where_warden_put_key</span><span class="p">)</span>
     
-    <span class="n">coinToFlipSquareID</span> <span class="o">=</span> <span class="n">findWhichCoinToFlip</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">squareWhereWardenPutKey</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
-    <span class="n">chessboardPostCoinFlip</span> <span class="o">=</span> <span class="n">flipCoinForNewChessboardState</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">coinToFlipSquareID</span><span class="p">)</span>
-    <span class="n">newBinaryStringValue</span> <span class="o">=</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">(</span><span class="n">chessboardPostCoinFlip</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
-    <span class="n">squarePickedByPrisoner2</span> <span class="o">=</span> <span class="n">binaryToInt</span><span class="p">(</span><span class="n">newBinaryStringValue</span><span class="p">)</span>
+    <span class="n">coin_to_flip_square_id</span> <span class="o">=</span> <span class="n">find_which_coin_to_flip</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">square_where_warden_put_key</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+    <span class="n">chessboard_after_coin_flip</span> <span class="o">=</span> <span class="n">flip_coin_for_new_chessboard_state</span><span class="p">(</span><span class="n">chessboard</span><span class="p">,</span> <span class="n">coin_to_flip_square_id</span><span class="p">)</span>
+    <span class="n">newBinaryStringValue</span> <span class="o">=</span> <span class="n">read_binary_from_chessboard</span><span class="p">(</span><span class="n">chessboard_after_coin_flip</span><span class="p">,</span> <span class="n">sections</span><span class="p">)</span>
+    <span class="n">square_picked_by_prisoner_2</span> <span class="o">=</span> <span class="n">binary_to_int</span><span class="p">(</span><span class="n">newBinaryStringValue</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">squarePickedByPrisoner2</span> <span class="o">==</span> <span class="n">squareWhereWardenPutKey</span>
+    <span class="k">return</span> <span class="n">square_picked_by_prisoner_2</span> <span class="o">==</span> <span class="n">square_where_warden_put_key</span>
 
-<span class="k">def</span> <span class="nf">batchTestPuzzleSolution</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">batchtest_puzzle_solution</span><span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="n">success</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">failure</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
-        <span class="n">solutionSuccessful</span> <span class="o">=</span> <span class="n">testPuzzleSolution</span><span class="p">(</span>
-            <span class="n">getChessboardOfCoins</span><span class="p">,</span> <span class="n">getChessboardSquareIDs</span><span class="p">,</span>
-            <span class="n">binaryToInt</span><span class="p">,</span> <span class="n">intTo6BitBinary</span><span class="p">,</span>
-            <span class="n">sections</span><span class="p">,</span> <span class="n">readBinaryLocationFromChessboard</span><span class="p">,</span> <span class="n">getWardenKeyPlacement</span><span class="p">,</span>
-            <span class="n">findWhichCoinToFlip</span><span class="p">,</span> <span class="n">flipCoinForNewChessboardState</span>
+        <span class="n">solution_successful</span> <span class="o">=</span> <span class="n">test_puzzle_solution</span><span class="p">(</span>
+            <span class="n">get_chessboard_of_coins</span><span class="p">,</span> <span class="n">get_chessboard_square_ids</span><span class="p">,</span>
+            <span class="n">binary_to_int</span><span class="p">,</span> <span class="n">int_to_6bit_binary</span><span class="p">,</span>
+            <span class="n">sections</span><span class="p">,</span> <span class="n">read_binary_from_chessboard</span><span class="p">,</span> <span class="n">get_warden_key_placement</span><span class="p">,</span>
+            <span class="n">find_which_coin_to_flip</span><span class="p">,</span> <span class="n">flip_coin_for_new_chessboard_state</span>
         <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">solutionSuccessful</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">solution_successful</span><span class="p">):</span>
             <span class="n">success</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">failure</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">success</span><span class="p">,</span> <span class="n">failure</span><span class="p">]</span>
     
-<span class="n">success</span><span class="p">,</span> <span class="n">failure</span> <span class="o">=</span> <span class="n">batchTestPuzzleSolution</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">success</span><span class="p">,</span> <span class="n">failure</span> <span class="o">=</span> <span class="n">batchtest_puzzle_solution</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result of </span><span class="si">{</span><span class="n">success</span> <span class="o">+</span> <span class="n">failure</span><span class="si">}</span><span class="s2"> random test runs:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Success: </span><span class="si">{</span><span class="n">success</span><span class="si">}</span><span class="s2">, failure: </span><span class="si">{</span><span class="n">failure</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15745,8 +15747,8 @@ Success! Prisoner 2 finds the key in square number 19 and both prisoners go free
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Result of 1000 random test runs:
-Success: 1000, failure: 0
+<pre>Result of 100 random test runs:
+Success: 100, failure: 0
 </pre>
 </div>
 </div>

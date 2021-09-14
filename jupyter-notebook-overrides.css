@@ -1,6 +1,7 @@
 /* 
   Style Overrides for Jupyter Notebook's HTML Export
-  To apply overrides add `<link rel="stylesheet" href="jupyter-notebook-overrides.css">` to the HTML's `<head>`
+  - To apply overrides add `<link rel="stylesheet" href="jupyter-notebook-overrides.css">` to the HTML's `<head>`
+  - Also consider changing the `<title>`
 */
 
 /* Make code blocks and their output scroll horizontally */

@@ -18,3 +18,8 @@ Prisoner 1 walks in to a room, sees a chessboard where each square has a coin on
 * Introduction video & walk-through: [The almost impossible chessboard puzzle](https://www.youtube.com/watch?v=as7Gkm7Y7h4) by Stand-up Maths
 * Further discussion video: [The impossible chessboard puzzle](https://www.youtube.com/watch?v=wTJI_WuZSwE) by 3Blue1Brown
 * Full breakdown website with interactive examples: [Impossible Escape?](https://datagenetics.com/blog/december12014/index.html) by DataGenetics
+
+## Maintainers
+
+- Should be able to convert the Jupyter Notebook to Markdown using `python -m jupyter nbconvert --to markdown 'Impossible Chessboard Escape Puzzle - CLR.ipynb'`
+
